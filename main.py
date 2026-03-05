@@ -10,6 +10,7 @@
 from gestionale.vendite.ordini import Ordine, RigaOrdine, OrdineConSconto
 from gestionale.core.prodotti import Prodotto, crea_prodotto_standard, ProdottoRecord
 from gestionale.core.clienti import Cliente, ClienteRecord
+import networkx as nx
 
 print("\n----------------------------------------------")
 print("--------- Classe Prodotto con Moduli ---------")
@@ -46,7 +47,7 @@ prodotto2 = ProdottoRecord("Mouse", 20.0 )
 ordine = Ordine([RigaOrdine(prodotto1, 2), RigaOrdine(prodotto2, 10)], cliente1)
 
 for j in range(ordine.numero_ordini()):
-    print(f"Ordine {j+1}: {ordine.ordini[j]}")
+    print(f"Ordine {j+1}: {ordine.righe[j]}")
 print("Numero di righe:", {ordine.numero_ordini()})
 print(f"Totale netto:", ordine.totale_netto())
 print("Totale lordo (IVA 22%):", ordine.totale_lordo(0.22))
@@ -56,3 +57,7 @@ ordine_scontato = OrdineConSconto([RigaOrdine(prodotto1, 2), RigaOrdine(prodotto
 print(ordine_scontato)
 print(f"Totale netto:", ordine_scontato.totale_netto())
 print("Totale lordo (IVA 22%):", ordine_scontato.totale_lordo(0.22))
+
+# Nel package gestionale, scriviamo un modulo fatture.py che contenga:
+# - una classe fattura che contiene un ordine, numero fattura e una data
+# - un metodo genera fattura che restituisce una stringa formattata con tutte le info della fattura

@@ -14,17 +14,17 @@ class RigaOrdine:
 
 @dataclass
 class Ordine:
-    ordini: list[RigaOrdine]
+    righe: list[RigaOrdine]
     cliente: ClienteRecord
 
     def totale_netto(self):
-        return sum(r.totale_riga() for r in self.ordini)
+        return sum(r.totale_riga() for r in self.righe)
 
     def totale_lordo(self, aliquota_iva):
         return self.totale_netto()*(1+aliquota_iva)
 
     def numero_ordini(self):
-        return len(self.ordini)
+        return len(self.righe)
 
 @dataclass
 class OrdineConSconto(Ordine):
