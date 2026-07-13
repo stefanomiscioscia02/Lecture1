@@ -10,7 +10,7 @@ from dataclasses import dataclass
 # e accetti solo (Gold, Silver, Bronze)
 
 class Prodotto:
-    aliquota_iva = 0.22 #variabile di classe -> è lastessa per tutte le sitanze che verrano create
+    aliquota_iva = 0.22 #variabile di classe -> è la stessa per tutte le istanze che verrano create
 
     def __init__(self, name:str, price:float, quantity:int, supplier = None):
         self.name = name
@@ -66,6 +66,7 @@ class Prodotto:
         return self._price * (1+self.aliquota_iva)
 
 MAX_QUANTITA = 1000
+
 def crea_prodotto_standard(nome: str, prezzo: float):
     return Prodotto(nome, prezzo, quantity=1, supplier=None)
 
@@ -103,6 +104,12 @@ class Abbonamento:
 class ProdottoRecord:
     name: str
     prezzo_unitario: float
+
+    def __hash__(self):
+        return hash((self.name, self.prezzo_unitario))
+
+    def __str__(self):
+        return f"Prodotto: {self.name}, Prezzo:{self.prezzo_unitario}"
 #----------------------------------------------------------------------------------------------------------------
 def _test_modulo():
     print("\n---------------------------------------------")
