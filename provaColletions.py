@@ -7,6 +7,7 @@ p2 = ProdottoRecord("Mouse", 20.0)
 p3 = ProdottoRecord("Auricolari", 250.0)
 
 carrello = [p1, p2, p3, ProdottoRecord("Tablet", 700.0)]
+
 print("\nProdotti nel carrello")
 for i, p in enumerate(carrello,1):
     print(f"{i} {p.name} - {p.prezzo_unitario}")
@@ -123,3 +124,16 @@ s.symmetric_difference(s2) # s^ s2, ovvero elementi di s non contenuti in s2 ed 
 s2.issubset() #se gli elementi di s2 sono contenuti in s
 s2.issuperset() #se gli elementi di s sono contenuti in s2
 s2.isdisjoint() #se gli elementi di s e quelli di s2 sono diversi
+
+#Dictionary
+catalogo = {
+    "LAP001" : ProdottoRecord("Laptop", 1200.0),
+    "LAP002" : ProdottoRecord("Laptop Pro", 2500.0),
+    "MAU001" : ProdottoRecord("Mouse", 20.0),
+    "AUR001" : ProdottoRecord("Auricolari", 250.0)
+}
+
+cod = "LAP002"
+
+prod = catalogo[cod]
+print(f"Il prodotto con codice {cod} è il prodotto: {prod}")
