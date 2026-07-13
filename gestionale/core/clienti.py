@@ -37,7 +37,7 @@ class Cliente:
 class ClienteRecord:
     name: str
     mail: str
-    livello: str
+    categoria: str
 #===========================================================================================================
 
 def _test_modulo():

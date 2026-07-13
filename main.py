@@ -39,7 +39,7 @@ print("----------------- DATACLASSES -----------------")
 print("-----------------------------------------------\n")
 
 
-cliente1 = ClienteRecord(name="Mario Rossi", mail="mariorossi@example.com", livello="Gold")
+cliente1 = ClienteRecord(name="Mario Rossi", mail="mariorossi@example.com", categoria="Gold")
 
 prodotto1 = ProdottoRecord("Laptop", 1200.0 )
 prodotto2 = ProdottoRecord("Mouse", 20.0 )

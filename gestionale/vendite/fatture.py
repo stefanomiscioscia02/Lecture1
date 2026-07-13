@@ -19,7 +19,7 @@ class Fattura:
             f"="*60,
             f"Fattura no.{self.numero_fattura} del {self.data}",
             f"=" * 60,
-            f"Cliente: {self.ordine.cliente.name}\nCategoria: {self.ordine.cliente.livello}\nMail: {self.ordine.cliente.mail}",
+            f"Cliente: {self.ordine.cliente.name}\nCategoria: {self.ordine.cliente.categoria}\nMail: {self.ordine.cliente.mail}",
             f"-" * 60,
             f"DETTAGLIO ORDINE"
         ]

@@ -30,7 +30,7 @@ class Ordine:
         """Restituisce un riepilogo testuale dell'ordine."""
         linee = [
             f"Ordine per: {self.cliente.name} ({self.cliente.mail})",
-            f"Categoria cliente: {self.cliente.livello}",
+            f"Categoria cliente: {self.cliente.categoria}",
             "-" * 50
         ]
 
