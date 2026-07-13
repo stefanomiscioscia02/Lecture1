@@ -26,6 +26,27 @@ class Ordine:
     def numero_ordini(self):
         return len(self.righe)
 
+    def riepilogo(self) -> str:
+        """Restituisce un riepilogo testuale dell'ordine."""
+        linee = [
+            f"Ordine per: {self.cliente.name} ({self.cliente.mail})",
+            f"Categoria cliente: {self.cliente.livello}",
+            "-" * 50
+        ]
+
+        for i, riga in enumerate(self.righe, 1):
+            linee.append(
+                f"{i}. {riga.prodotto.name} - "
+                f"Q.tà {riga.quantita} x {riga.prodotto.prezzo_unitario}€ = "
+                f"{riga.totale_riga()}€"
+            )
+
+        linee.append("-" * 50)
+        linee.append(f"Totale netto: {self.totale_netto():.2f}€")
+        linee.append(f"Totale lordo (IVA 22%): {self.totale_lordo(0.22):.2f}€")
+
+        return "\n".join(linee)
+
 @dataclass
 class OrdineConSconto(Ordine):
     sconto_percetuale: float
