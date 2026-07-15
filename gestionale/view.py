@@ -49,7 +49,7 @@ class View:
 
         self._lvOut = ft.ListView(expand=True)
 
-        self._page.add_row(row1, row2, row3, self._lvOut)
+        self._page.add(row1, row2, row3, self._lvOut)
 
     def set_controller(self,c):
         self._controller = c
